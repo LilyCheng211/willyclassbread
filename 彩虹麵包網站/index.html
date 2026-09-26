@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>彩虹麵包工作室</title>
+  <!-- 引入外部樣式檔 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 頂部導覽列 -->
+  <nav class="navbar">
+    <div class="logo">🌈 彩虹麵包</div>
+    <div class="cart">🛒 購物車：<span id="cart-count">0</span></div>
+  </nav>
+
+  <!-- 主視覺區 -->
+  <section class="hero">
+    <div class="hero-text">
+      <p class="tag">今日限量 · 剛出爐</p>
+      <h1 class="rainbow-title">吃一口<br>就是彩虹</h1>
+      <p class="subtitle">七種顏色、一條吐司，好不好吃不重要，拍照一定要好看。</p>
+      <button class="btn" id="hero-btn">立刻搶一條 ✨</button>
+    </div>
+
+    <!-- 圖片外框，滑鼠移上去會 3D 傾斜 -->
+    <div class="hero-image" id="tilt-box">
+      <img src="rainbow-bread.png" alt="彩虹吐司切片">
+    </div>
+  </section>
+
+  <!-- 跑馬燈 -->
+  <div class="marquee">
+    <div class="marquee-track">
+      🍞 紅 · 橙 · 黃 · 綠 · 藍 · 紫 · 🍞 IG 打卡必備 · 🍞 每日限量 50 條 · 🍞 紅 · 橙 · 黃 · 綠 · 藍 · 紫 · 🍞 IG 打卡必備 · 🍞 每日限量 50 條 ·
+    </div>
+  </div>
+
+  <!-- 商品區 -->
+  <section class="menu">
+    <h2 class="section-title">今日菜單</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="emoji">🌈</div>
+        <h3>經典彩虹吐司</h3>
+        <p>七色漩渦，切開那一刻最療癒。</p>
+        <div class="price">NT$ 280</div>
+        <button class="btn add-btn">加入購物車</button>
+      </div>
+      <div class="card">
+        <div class="emoji">🦄</div>
+        <h3>獨角獸可頌</h3>
+        <p>粉紫夢幻色，層層酥脆。</p>
+        <div class="price">NT$ 120</div>
+        <button class="btn add-btn">加入購物車</button>
+      </div>
+      <div class="card">
+        <div class="emoji">🌌</div>
+        <h3>銀河貝果</h3>
+        <p>深藍星空配色，嚼勁十足。</p>
+        <div class="price">NT$ 90</div>
+        <button class="btn add-btn">加入購物車</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁尾 -->
+  <footer class="footer">
+    © 2026 彩虹麵包工作室 · 好看比好吃重要
+  </footer>
+
+  <!-- 引入外部程式檔 -->
+  <script src="script.js"></script>
+</body>
+</html>

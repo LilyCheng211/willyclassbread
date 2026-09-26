@@ -1,0 +1,259 @@
+/* ===== 基本設定 ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+  background: #0d0b1a;
+  color: #fff;
+  overflow-x: hidden;
+  /* 滑鼠移動時產生的星星會用到，不讓它影響版面 */
+  cursor: default;
+}
+
+/* ===== 導覽列 ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background: rgba(13, 11, 26, 0.7);
+  /* 毛玻璃效果 */
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.cart {
+  font-size: 16px;
+}
+
+#cart-count {
+  display: inline-block;
+  min-width: 28px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: #ff4d8d;
+  text-align: center;
+}
+
+/* 購物車數字跳動動畫（由 script.js 加上 class） */
+.bump {
+  animation: bump 0.4s;
+}
+
+@keyframes bump {
+  50% { transform: scale(1.6); }
+}
+
+/* ===== 主視覺 ===== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  min-height: 90vh;
+  padding: 40px 32px;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  max-width: 480px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 6px 14px;
+  margin-bottom: 20px;
+  border: 1px solid #ffffff55;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+/* 彩虹流動文字：用漸層當背景，再把背景「剪」成文字形狀 */
+.rainbow-title {
+  font-size: 72px;
+  line-height: 1.15;
+  background: linear-gradient(90deg, #ff3b3b, #ff9f1a, #ffe600, #3ddc84, #2fa8ff, #9b5cff, #ff3b3b);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: flow 5s linear infinite;
+}
+
+@keyframes flow {
+  from { background-position: 0% 50%; }
+  to   { background-position: 300% 50%; }
+}
+
+.subtitle {
+  margin: 20px 0 30px;
+  font-size: 18px;
+  color: #c9c3e6;
+  line-height: 1.6;
+}
+
+/* ===== 按鈕 ===== */
+.btn {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(90deg, #ff3b3b, #ff9f1a, #ffe600, #3ddc84, #2fa8ff, #9b5cff);
+  background-size: 200% 100%;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 25px #ff9f1a88;
+  animation: flow 2s linear infinite;
+}
+
+/* ===== 主圖（3D 傾斜 + 彩虹光暈） ===== */
+.hero-image {
+  width: 420px;
+  max-width: 90vw;
+  border-radius: 30px;
+  /* 光暈陰影 */
+  box-shadow: 0 0 60px #ff4d8d66, 0 0 120px #2fa8ff44;
+  transition: transform 0.1s;
+  /* 上下漂浮 */
+  animation: float 4s ease-in-out infinite;
+}
+
+.hero-image img {
+  display: block;
+  width: 100%;
+  border-radius: 30px;
+}
+
+@keyframes float {
+  50% { translate: 0 -18px; }
+}
+
+/* ===== 跑馬燈 ===== */
+.marquee {
+  overflow: hidden;
+  padding: 18px 0;
+  background: linear-gradient(90deg, #ff3b3b, #ff9f1a, #ffe600, #3ddc84, #2fa8ff, #9b5cff);
+  transform: rotate(-2deg);
+}
+
+.marquee-track {
+  white-space: nowrap;
+  font-size: 22px;
+  font-weight: bold;
+  color: #1a1030;
+  animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ===== 商品卡片 ===== */
+.menu {
+  padding: 100px 32px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 40px;
+  margin-bottom: 50px;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 280px;
+  padding: 36px 24px;
+  border-radius: 24px;
+  background: #1c1733;
+  border: 2px solid transparent;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px) rotate(-1deg);
+  border-color: #ff9f1a;
+  box-shadow: 0 10px 40px #9b5cff66;
+}
+
+.emoji {
+  font-size: 60px;
+  margin-bottom: 16px;
+}
+
+.card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #c9c3e6;
+  margin-bottom: 16px;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffe600;
+  margin-bottom: 20px;
+}
+
+/* ===== 頁尾 ===== */
+.footer {
+  padding: 30px;
+  text-align: center;
+  color: #7d77a0;
+  font-size: 14px;
+}
+
+/* ===== 滑鼠星星 & 彩色碎紙（由 script.js 產生） ===== */
+.sparkle,
+.confetti {
+  position: fixed;
+  pointer-events: none; /* 不擋住滑鼠點擊 */
+  z-index: 999;
+}
+
+.sparkle {
+  font-size: 16px;
+  animation: fade 0.8s forwards;
+}
+
+@keyframes fade {
+  to { opacity: 0; transform: translateY(20px) scale(0.3); }
+}
+
+.confetti {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+/* ===== 手機版 ===== */
+@media (max-width: 700px) {
+  .rainbow-title { font-size: 48px; }
+  .hero { gap: 40px; min-height: auto; }
+}
